@@ -1,0 +1,45 @@
+<template name="employee">
+	<div class="data-grid">
+		{{> employeeView}}
+	</div>
+	<div>
+		{{> addEmployeeForm}}
+	</div>
+</template>
+
+<template name="employeeView">
+	<div class="app-title">
+		<span id="title-name">{{title}}</span>
+		<span id="title-content">[ {{employer}} ]</span>
+	</div>
+	<table>
+		<tbody>
+			<tr>
+				<th id="employee-account">职工帐号</th>
+				<th id="employee-name">职工姓名</th>
+				<th id="employee-id">身份证号</th>
+			</tr>
+		</tbody>
+	</table>
+	<table>
+		<tbody>
+			{{#each employee}}
+				<tr class="employee {{selectedClass}}">
+					<td id="employee-account">{{account}}</td>
+					<td id="employee-name">{{name}}</td>
+					<td id="employee-id">{{id}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="addEmployeeForm">
+	<form class="form-region">
+		<label>帐号</label><input type="text" id="employeeAccount">
+		<label>姓名</label><input type="text" id="employeeName">
+		<label>身份证号</label><input type="text" id="employeeID">
+		<input type="submit" class="btn" value="添加">
+		<input type="button" class="btn" value="删除">
+	</form>
+</template>

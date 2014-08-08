@@ -1,0 +1,196 @@
+/* CSS declarations go here */
+/* CSS declarations go here */
+body{
+	margin: 0px;
+}
+
+.app-header{
+	background-color: #33495E;
+	color: white;
+}
+
+#logo{
+	display: inline-block;
+	padding-left: 56px;
+}
+
+a{
+	text-decoration : none;
+	color: #e74c3c;
+}
+
+a:hover{
+	color: white;
+} 
+
+#toolbar{
+	display: inline-block;
+	padding-left: 140px; 
+}
+
+.global-search{
+	display: inline-block;
+}
+
+#login{
+	width: 600px;
+	display: inline-block;
+}
+
+.btn{
+	width: 10%;
+	height: 28px;
+	font-size: 16px;
+	color: white;
+	background-color: #1abc9c;
+	letter-spacing: 1px;
+	border: 1.5px solid lightblue;
+	border-radius: 2px;
+}
+
+label{
+	margin-left: 10px; 
+}
+
+.form-region{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+input{
+	height: 22px;
+	margin-left: 20px;
+	font-size: 1em;
+	text-align: center;
+}
+
+#employerName{
+	width: 260px;
+}
+
+.app{
+	border: 1px solid #d4d4d4;
+	width: 90%;
+	height: auto;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 16px;
+	overflow: hidden;
+}
+.app-title{
+	color: #000;
+	background-color: #efefef;
+	font-size: 1.2em;
+	font-family: sans-serif;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+#title-name{
+}
+
+#title-content{
+	margin-left: 60px;
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th{
+	font-size: 1em;
+	text-align: center;
+	border: 1px solid #efefef;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	background-color: #71869b;
+	color: white;
+}
+
+td {
+	font-size: 1em;
+	text-align: left;
+	border: 1px solid black;
+	padding: 3px 6px 3px 6px;
+}
+
+#employer-id{
+	width: 20%;
+}
+
+#employer-name{
+	width: 80%;
+}
+
+#employee-account{
+	width: 20%;
+}
+
+#employee-name{
+	width: 20%;
+}
+
+#employee-id{
+	width: 30%;
+}
+
+#employee-employer{
+	width: 30%;
+}
+
+#employerID{
+	width: 90px;
+}
+
+#employerName{
+	width: 460px;
+}
+
+#th-date{
+	width: 10%;
+}
+
+#date-input{
+	width: 90px;
+}
+
+#month-input{
+	width: 30px;
+}
+
+#money-input{
+	width: 90px;
+}
+
+#month{
+	width: 40px;
+}
+
+
+#th-abstract{
+	width: 30%;
+}
+
+#th-income{
+	width: 20%;
+}
+
+#th-defray{
+	width: 20%;
+}
+
+#th-balance{
+	width: 20%;
+}
+
+.selected{
+	background-color: #8fbc8f;
+}
+
+select{
+	font-size: 40px;
+}
