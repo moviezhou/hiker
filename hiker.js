@@ -92,7 +92,6 @@ if (Meteor.isClient) {
     }
   }
 
-
   Template.transactionForm.events({
     'change .selectMonth': function(){
       var selectedMonth = $('#month').val();

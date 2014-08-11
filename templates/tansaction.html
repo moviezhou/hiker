@@ -9,11 +9,12 @@
 
 <template name="transactionView">
 	<div class="app-title">
+		<span class="glyphicon glyphicon-list"></span>
 		<span id="title-name">{{title}}</span>
 		<span id="title-content">[ {{employee}} ]</span>
 	</div>
-	<table>
-		<tbody>
+	<table class="table">
+		<thead>
 			<tr>
 				<th id="th-date">日期</th>
 				<th id="th-abstract">摘要</th>
@@ -21,9 +22,7 @@
 				<th id="th-defray">支取金额</th>
 				<th id="th-balance">余额</th>
 			</tr>
-		</tbody>
-	</table>
-	<table>
+		</thead>
 		<tbody>
 			{{#each transactions}}
 				<tr class="transaction {{selectedClass}}">
@@ -39,29 +38,51 @@
 </template>
 
 <template name="transactionForm">
-	<form class="form-region">
-		<label>日期</label><input type="text" id="date-input">
-		<label>月度</label><input type="text" id="month-input" value={{selectedMonth}}>
-		<select name="month" id="month" class="selectMonth">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-			<option value="11">11</option>
-			<option value="12">12</option>
-		</select>
-		<label>业务类别</label>
-		<label><input name="category" type="radio" value="1" id="hj" checked>汇缴</label>
-		<label><input name="category" type="radio" value="0" id="bj">补缴</label>
-		<label><input name="category" type="radio" value="-1" id="zq">支取</label>
-		<label><input name="category" type="radio" value="2" id="jx">结息</label>
-		<label>金额</label><input type="text" id="money-input">
+	<form class="form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">日期</span>
+			<input type="text" class="form-control" id="date-input">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">月度</span>
+			<input type="text" class="form-control" id="month-input" value={{selectedMonth}}>
+			<span>
+				<select name="month" id="month" class="selectMonth form-control" >
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>
+			</span>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">业务类别</span>
+
+			<label class="checkbox-inline"><input name="category" type="radio" class="radio" value="1" id="hj" checked>
+				<span class="label label-success">汇缴</span>
+			</label>
+			<label class="checkbox-inline"><input name="category" type="radio" value="0" class="radio" id="bj">
+				<span class="label label-warning">补缴</span>
+			</label>
+			<label class="checkbox-inline"><input name="category" type="radio" value="-1" class="radio" id="zq">
+				<span class="label label-danger">支取</span>
+			</label>
+			<label class="checkbox-inline"><input name="category" type="radio" value="2" class="radio" id="jx">
+				<span class="label label-primary">结息</span>
+			</label>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">金额</span>
+			<input type="text" class="form-control" id="money-input">
+		</div>
 		<input type="submit" class="btn" id="commit" value="确定">
 	</form>
 </template>

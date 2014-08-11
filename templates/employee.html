@@ -9,19 +9,18 @@
 
 <template name="employeeView">
 	<div class="app-title">
+		<span class="glyphicon glyphicon-list"></span>
 		<span id="title-name">{{title}}</span>
 		<span id="title-content">[ {{employer}} ]</span>
 	</div>
-	<table>
-		<tbody>
+	<table class="table">
+		<thead>
 			<tr>
 				<th id="employee-account">职工帐号</th>
 				<th id="employee-name">职工姓名</th>
 				<th id="employee-id">身份证号</th>
 			</tr>
-		</tbody>
-	</table>
-	<table>
+		</thead>
 		<tbody>
 			{{#each employee}}
 				<tr class="employee {{selectedClass}}">
@@ -35,11 +34,27 @@
 </template>
 
 <template name="addEmployeeForm">
-	<form class="form-region">
-		<label>帐号</label><input type="text" id="employeeAccount">
-		<label>姓名</label><input type="text" id="employeeName">
-		<label>身份证号</label><input type="text" id="employeeID">
-		<input type="submit" class="btn" value="添加">
-		<input type="button" class="btn" value="删除">
+	<form class="form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">帐号</span>
+			<input type="text" class="form-control" id="employeeAccount">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">姓名</span>
+			<input type="text" class="form-control" id="employeeName">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">身份证号</span>
+			<input type="text" class="form-control" id="employeeID">
+		</div>
+		<button type="submit" class="btn">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+		<button type="submit" class="btn">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+		<button type="button" class="btn">
+			<span class="glyphicon glyphicon-pencil"></span>
+		</button>
 	</form>
 </template>

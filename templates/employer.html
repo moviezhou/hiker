@@ -5,17 +5,16 @@
 
 <template name="employerView">
 	<div class="app-title">
+		<span class="glyphicon glyphicon-list"></span>
 		{{title}}
 	</div>
-	<table>
-		<tbody>
+	<table class="table">
+		<thead>
 			<tr>
 				<th id="employer-id">单位帐号</th>
 				<th id="employer-name">单位名称</th>
 			</tr>
-		</tbody>
-	</table>
-	<table>
+		</thead>
 		<tbody>
 			{{#each employer}}
 				<tr class="employer {{selectedClass}}">
@@ -28,10 +27,23 @@
 </template>
 
 <template name="addEmployerForm">
-	<form class="form-region">
-		<label>单位帐号</label><input type="text" id="employerID">
-		<label>单位名称</label><input type="text" id="employerName">
-		<input type="submit" class="btn" value="添加">
-		<input type="button" class="btn" value="删除">
+	<form class="form-inline">
+		<div class="input-group">
+			<span class="input-group-addon">单位帐号</span>
+			<input type="text" class="form-control" id="employerID">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">单位名称</span>
+			<input type="text" class="form-control" id="employerName">
+		</div>
+		<button type="button" class="btn btn-add">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+		<button type="button" class="btn">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+		<button type="button" class="btn">
+			<span class="glyphicon glyphicon-pencil"></span>
+		</button>
 	</form>
 </template>

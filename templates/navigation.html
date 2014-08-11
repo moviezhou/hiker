@@ -1,0 +1,26 @@
+
+<template name="navigation">
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="{{pathFor 'home'}}">
+				<span class="glyphicon glyphicon-home"></span>
+				Hiker
+			</a>
+		</div>
+		<div>
+			<form class="nav-form form-inline navbar-left">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" id="search-box">
+					<span class="glyphicon glyphicon-search"></span>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="User" id="user">
+					<span class="glyphicon glyphicon-user"></span>
+					<input type="password" class="form-control" placeholder="Password" id="password">
+					<span class="glyphicon glyphicon-lock"></span>
+					<input type="submit" class="btn" value="登录">
+				</div>
+			</form>
+		</div>
+	</nav>
+</template>
