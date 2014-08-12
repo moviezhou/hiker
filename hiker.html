@@ -2,18 +2,17 @@
   <title>hiker</title>
 </head>
 <body>
+	{{> layout}}
 </body>
 <template name="layout">
-	<div>
-		{{> navigation}}
+	<div ng-controller="HikerCtrl">
+		<div>
+			{{> navigation}}
+		</div>
+		<div class="app">
+			{{> yield}}
+		</div>
 	</div>
-	<div class="app">
-		{{> yield}}
-	</div>
-</template>
-
-<template name="test">
-  <a href="/new-window" target="_blank">Open new window</a>
 </template>
 
 

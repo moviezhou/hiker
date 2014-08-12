@@ -3,7 +3,7 @@
 		{{> employeeView}}
 	</div>
 	<div>
-		{{> addEmployeeForm}}
+		{{> employeeForm}}
 	</div>
 </template>
 
@@ -13,7 +13,7 @@
 		<span id="title-name">{{title}}</span>
 		<span id="title-content">[ {{employer}} ]</span>
 	</div>
-	<table class="table">
+	<table class="table table-head">
 		<thead>
 			<tr>
 				<th id="employee-account">职工帐号</th>
@@ -21,19 +21,23 @@
 				<th id="employee-id">身份证号</th>
 			</tr>
 		</thead>
-		<tbody>
-			{{#each employee}}
-				<tr class="employee {{selectedClass}}">
-					<td id="employee-account">{{account}}</td>
-					<td id="employee-name">{{name}}</td>
-					<td id="employee-id">{{id}}</td>
-				</tr>
-			{{/each}}
-		</tbody>
 	</table>
+	<div class="table-content">
+		<table class="table">
+			<tbody>
+				{{#each employee}}
+					<tr class="employee {{selectedClass}}">
+						<td id="employee-account">{{account}}</td>
+						<td id="employee-name">{{name}}</td>
+						<td id="employee-id">{{id}}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
 </template>
 
-<template name="addEmployeeForm">
+<template name="employeeForm">
 	<form class="form-inline">
 		<div class="input-group">
 			<span class="input-group-addon">帐号</span>
@@ -47,13 +51,13 @@
 			<span class="input-group-addon">身份证号</span>
 			<input type="text" class="form-control" id="employeeID">
 		</div>
-		<button type="submit" class="btn">
+		<button type="submit" class="btn" id="add">
 			<span class="glyphicon glyphicon-plus"></span>
 		</button>
-		<button type="submit" class="btn">
+		<button type="button" class="btn" id="remove">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
-		<button type="button" class="btn">
+		<button type="button" class="btn" id="edit">
 			<span class="glyphicon glyphicon-pencil"></span>
 		</button>
 	</form>

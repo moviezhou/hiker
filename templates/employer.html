@@ -1,6 +1,6 @@
 <template name="employer">
 	<div class="data-grid">{{> employerView}}</div>
-	<div>{{> addEmployerForm}}</div>
+	<div>{{> employerForm}}</div>
 </template>
 
 <template name="employerView">
@@ -8,25 +8,27 @@
 		<span class="glyphicon glyphicon-list"></span>
 		{{title}}
 	</div>
-	<table class="table">
+	<table class="table table-head">
 		<thead>
 			<tr>
 				<th id="employer-id">单位帐号</th>
 				<th id="employer-name">单位名称</th>
 			</tr>
 		</thead>
-		<tbody>
-			{{#each employer}}
-				<tr class="employer {{selectedClass}}">
-					<td id="employer-id">{{id}}</td>
-					<td id="employer-name">{{name}}</td>
-				</tr>
-			{{/each}}
-		</tbody>
 	</table>
+	<div class="table-content">
+		<table class="table">
+			<tbody>
+				<tr ng-repeat="emp in EmployersCollection" class="employer {{selectedClass}}">
+					<td id="employer-id">[[emp.id]]</td>
+					<td id="employer-name">[[emp.name]]</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 
-<template name="addEmployerForm">
+<template name="employerForm">
 	<form class="form-inline">
 		<div class="input-group">
 			<span class="input-group-addon">单位帐号</span>
@@ -36,13 +38,13 @@
 			<span class="input-group-addon">单位名称</span>
 			<input type="text" class="form-control" id="employerName">
 		</div>
-		<button type="button" class="btn btn-add">
+		<button type="submit" class="btn btn-add" id="add">
 			<span class="glyphicon glyphicon-plus"></span>
 		</button>
-		<button type="button" class="btn">
+		<button type="button" class="btn" id="remove">
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
-		<button type="button" class="btn">
+		<button type="button" class="btn" id="edit">
 			<span class="glyphicon glyphicon-pencil"></span>
 		</button>
 	</form>

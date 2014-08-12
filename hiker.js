@@ -19,10 +19,16 @@ Router.map(function(){
     path: 'transaction',
     template: 'transaction',
     layoutTemplate: 'layout'
-  })
+  });
 });
 
 if (Meteor.isClient) {
+
+  ngMeteor.controller('HikerCtrl', ['$scope', '$collection',
+    function($scope, $collection) {
+      $collection("EmployersCollection", $scope);
+  }]);
+
   Template.employerView.title = function () {
     var title = "单位管理"
     return title;
@@ -42,7 +48,7 @@ if (Meteor.isClient) {
     }
   }
 
-  Template.addEmployerForm.events({
+  Template.employerForm.events({
     'submit form': function(theEvent, theTemplate){
       theEvent.preventDefault();
       var employerID = $('#employerID').val();
@@ -52,6 +58,10 @@ if (Meteor.isClient) {
         id: employerID,
         name: employerName
         });
+    },
+    'click #remove':function(){
+      var selectedEmployer = Session.get('selectedEmployer');
+      EmployersCollection.remove(selectedEmployer);
     }
   });
 
@@ -92,18 +102,11 @@ if (Meteor.isClient) {
     }
   }
 
-  Template.transactionForm.events({
-    'change .selectMonth': function(){
-      var selectedMonth = $('#month').val();
-      Session.set('selectedMonth', selectedMonth);
-    }
-  });
-
   Template.transactionForm.selectedMonth = function(){
     return Session.get('selectedMonth');
   }
 
-  Template.addEmployeeForm.events({
+  Template.employeeForm.events({
       'submit form': function(theEvent, theTemplate){
         theEvent.preventDefault();
 
@@ -120,6 +123,10 @@ if (Meteor.isClient) {
           id: employeeID,
           employerID: employerID 
         });
+      },
+      'click #remove': function(){
+        var selectedEmployee = Session.get('selectedEmployee');
+        EmployeesCollection.remove(selectedEmployee);
       }
     });
 
@@ -164,7 +171,17 @@ if (Meteor.isClient) {
     }
   }
 
+  Template.transactionForm.rendered = function(){
+    $('#datepicker').datepicker({
+      format: 'yyyy/m/dd'
+    });
+  }
+
   Template.transactionForm.events({
+    'change .selectMonth': function(){
+      var selectedMonth = $('#month').val();
+      Session.set('selectedMonth', selectedMonth);
+    },
     'submit form': function(theEvent, theTemplate){
       theEvent.preventDefault();
       var date = $('#date-input').val();
@@ -227,6 +244,11 @@ if (Meteor.isClient) {
         defray: defray,
         balance: balance
       });
+    },
+    'click #remove': function(){
+      var selectedTransaction = Session.get('selectedTransaction');
+      TransactionsCollection.remove(selectedTransaction);
+      console.log(selectedTransaction);
     }
   });
 

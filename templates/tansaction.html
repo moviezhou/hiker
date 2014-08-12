@@ -13,7 +13,7 @@
 		<span id="title-name">{{title}}</span>
 		<span id="title-content">[ {{employee}} ]</span>
 	</div>
-	<table class="table">
+	<table class="table table-head">
 		<thead>
 			<tr>
 				<th id="th-date">日期</th>
@@ -23,25 +23,29 @@
 				<th id="th-balance">余额</th>
 			</tr>
 		</thead>
-		<tbody>
-			{{#each transactions}}
-				<tr class="transaction {{selectedClass}}">
-					<td id="th-date">{{date}}</td>
-					<td id="th-abstract">{{abstract}}</td>
-					<td id="th-income">{{income}}</td>
-					<td id="th-defray">{{defray}}</td>
-					<td id="th-balance">{{balance}}</td>
-				</tr>
-			{{/each}}
-		</tbody>
 	</table>
+	<div class="table-content">
+		<table class="table">
+			<tbody>
+				{{#each transactions}}
+					<tr class="transaction {{selectedClass}}">
+						<td id="th-date">{{date}}</td>
+						<td id="th-abstract">{{abstract}}</td>
+						<td id="th-income">{{income}}</td>
+						<td id="th-defray">{{defray}}</td>
+						<td id="th-balance">{{balance}}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
 </template>
 
 <template name="transactionForm">
 	<form class="form-inline">
 		<div class="input-group">
-			<span class="input-group-addon">日期</span>
-			<input type="text" class="form-control" id="date-input">
+			<span class="input-group-addon datepicker">日期</span>
+			<input type="text" class="form-control" id="datepicker">
 		</div>
 		<div class="input-group">
 			<span class="input-group-addon">月度</span>
@@ -83,6 +87,14 @@
 			<span class="input-group-addon">金额</span>
 			<input type="text" class="form-control" id="money-input">
 		</div>
-		<input type="submit" class="btn" id="commit" value="确定">
+		<button type="submit" class="btn" id="add">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+				<button type="button" class="btn" id="remove">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+		<button type="button" class="btn" id="edit">
+			<span class="glyphicon glyphicon-pencil"></span>
+		</button>
 	</form>
 </template>
